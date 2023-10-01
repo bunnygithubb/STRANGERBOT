@@ -32,7 +32,7 @@ class Userbot(Client):
             name="StrangerAsst3",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            ssession_string=str(config.STRING3),
+            session_string=str(config.STRING3),
             no_updates=True,
         )
         self.four = Client(
