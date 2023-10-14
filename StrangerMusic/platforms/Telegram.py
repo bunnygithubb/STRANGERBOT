@@ -151,11 +151,11 @@ class TeleAPI:
                     except:
                         pass
                     left_time[
-                        message.message_id
+                        message.id
                     ] = datetime.now() + timedelta(seconds=self.sleep)
 
-            speed_counter[message.message_id] = time.time()
-            left_time[message.message_id] = datetime.now()
+            speed_counter[message.id] = time.time()
+            left_time[message.id] = datetime.now()
 
             try:
                 await app.download_media(
@@ -166,7 +166,7 @@ class TeleAPI:
                 await mystic.edit_text(
                     "Successfully Downloaded.. Processing file now"
                 )
-                downloader.pop(message.message_id)
+                downloader.pop(message.id)
             except:
                 await mystic.edit_text(_["tg_2"])
 
@@ -183,14 +183,14 @@ class TeleAPI:
             return False
 
         task = asyncio.create_task(down_load())
-        lyrical[mystic.message_id] = task
+        lyrical[mystic.id] = task
         await task
-        downloaded = downloader.get(message.message_id)
+        downloaded = downloader.get(message.id)
         if downloaded:
-            downloader.pop(message.message_id)
+            downloader.pop(message.id)
             return False
-        verify = lyrical.get(mystic.message_id)
+        verify = lyrical.get(mystic.id)
         if not verify:
             return False
-        lyrical.pop(mystic.message_id)
+        lyrical.pop(mystic.id)
         return True
