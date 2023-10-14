@@ -34,10 +34,10 @@ class TeleAPI:
 
     async def get_link(self, message):
         if message.chat.username:
-            link = f"https://t.me/{message.chat.username}/{message.reply_to_message.message_id}"
+            link = f"https://t.me/{message.chat.username}/{message.reply_to_message.id}"
         else:
             xf = str((message.chat.id))[4:]
-            link = f"https://t.me/c/{xf}/{message.reply_to_message.message_id}"
+            link = f"https://t.me/c/{xf}/{message.reply_to_message.id}"
         return link
 
     async def get_filename(
@@ -113,7 +113,7 @@ class TeleAPI:
                 if current == total:
                     return
                 current_time = time.time()
-                start_time = speed_counter.get(message.message_id)
+                start_time = speed_counter.get(message.id)
                 check_time = current_time - start_time
                 upl = InlineKeyboardMarkup(
                     [
@@ -125,12 +125,12 @@ class TeleAPI:
                         ]
                     ]
                 )
-                if datetime.now() > left_time.get(message.message_id):
+                if datetime.now() > left_time.get(message.id):
                     percentage = current * 100 / total
                     percentage = str(round(percentage, 2))
                     speed = current / check_time
                     eta = int((total - current) / speed)
-                    downloader[message.message_id] = eta
+                    downloader[message.id] = eta
                     eta = get_readable_time(eta)
                     if not eta:
                         eta = "0 sec"
