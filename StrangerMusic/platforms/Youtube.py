@@ -71,7 +71,7 @@ class YouTubeAPI:
                         break
             elif message.caption_entities:
                 for entity in message.caption_entities:
-                    if entity.type == MessageEntityType.TEXT_LINK":
+                    if entity.type == MessageEntityType.TEXT_LINK:
                         return entity.url
         if offset in (None,):
             return None
