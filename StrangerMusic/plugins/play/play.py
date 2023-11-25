@@ -202,9 +202,10 @@ async def play_commnd(
             else:
                 try:
                     details, track_id = await YouTube.track(url)
-                except Exception as e:                    print(e,"\n")
-                    if config.LOG_GROUP_ID and OWNER_ID:
-                        text="SOME ERROR HAS OCCURED \n REBOOT THE BOT TO START PLAYING SONG \n\n /reboot"
+                except Exception as e:
+                  print(e,"\n")
+                  if config.LOG_GROUP_ID and OWNER_ID:
+                       text="SOME ERROR HAS OCCURED \n REBOOT THE BOT TO START PLAYING SONG \n\n /reboot \n\n"
                         count = 0
                         for x in OWNER_ID:
                             try:
